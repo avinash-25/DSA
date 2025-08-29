@@ -163,6 +163,8 @@ console.log("Total Factor of ", num, " is ", count);
 //! Question 11
 //! check prime number or not
 
+
+// ! First approach
 /*
 let a = 8;
 let b = a - 1;
@@ -178,6 +180,45 @@ if (check == false)
 else
     console.log(a, " is not Prime");
 */
+
+
+// ! Second approach to find entered number is Prime or not
+
+// let n = 2;
+// let i = 2;
+// let count = 0;
+
+// if (Prime(n))
+//     console.log(n, " Is not prime");
+// else
+//     console.log(n, " Is prime");
+
+
+// function Prime(n) {
+//     if (n < 2)
+//         return false;
+
+//     while (i * i <= n) {
+//         if (n % i == 0) {
+//             let factOne = i;
+//             let factTwo = n / i;
+
+//             if (factOne == factTwo) {
+//                 return true;
+//             } else {
+//                 return true;
+//             }
+//         }
+//         i++;
+//     }
+//     return false;
+
+// }
+
+
+
+
+
 
 // ! Question 12
 // ! Print fibonacci number
@@ -213,3 +254,61 @@ else
 //     i++;
 // }
 // console.log("Last term is : ", c);
+
+
+//!Print all factors inculed number itself using function
+
+// let n = prompt("Enter a number to find factor : ")
+
+// // let n = 36;
+// let i = 2;
+// console.log("1  ", n);
+
+// factor(n);
+
+// function factor(n) {
+//     while (i * i <= n) {
+//         if (n % i == 0) {
+//             let factOne = i;
+//             let factTwo = n / i;
+
+//             if (factOne == factTwo)
+//                 console.log(factOne);
+//             else {
+//                 console.log(factOne, " ", factTwo);
+//             }
+//         }
+//         i++;
+//     }
+// }
+
+
+//!Print all factors and count the factors too inculed number itself using function
+
+// let n = prompt("Enter a number to find factor : ")
+
+// let n = 36;
+// let i = 2;
+// let count = 2;
+// console.log("1  ", n);
+
+// factor(n);
+
+// function factor(n) {
+//     while (i * i <= n) {
+//         if (n % i == 0) {
+//             let factOne = i;
+//             let factTwo = n / i;
+
+//             if (factOne == factTwo) {
+//                 console.log(factOne);
+//                 count++;
+//             } else {
+//                 console.log(factOne, " ", factTwo);
+//                 count += 2;
+//             }
+//         }
+//         i++;
+//     }
+//     console.log("Total Factors are : ", count);
+// }
