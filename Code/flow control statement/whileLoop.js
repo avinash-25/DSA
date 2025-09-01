@@ -298,7 +298,7 @@ while (i <= num) {
 
 // ! Print fibonacci number  [first approach]
 
-
+/*
 let n = 7;
 let n1 = 0;
 let n2 = 1;
@@ -312,7 +312,7 @@ while (i <= n) {
 
      n2 = n1;
      n1 = n3;
-     i++; */
+     i++; star/
 
     n3 = n1 + n2;
     console.log(n3);
@@ -321,7 +321,7 @@ while (i <= n) {
     i++;
 }
 
-
+*/
 
 
 
