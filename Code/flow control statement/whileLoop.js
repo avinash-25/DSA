@@ -184,7 +184,7 @@ else
 
 // ! Second approach to find entered number is Prime or not
 
-// let n = 2;
+// let n = 100;
 // let i = 2;
 // let count = 0;
 
@@ -212,32 +212,119 @@ else
 //         i++;
 //     }
 //     return false;
-
 // }
 
 
 
+//! Third Approach to find prime
+
+// let n = 100;
+// let i = 2;
+
+// if (Prime(n))
+//     console.log(n, " Is prime");
+// else
+//     console.log(n, " Is not prime");
+
+
+// function Prime(n) {
+//     if (n < 2)
+//         return false;
+
+//     while (i * i <= n) {
+//         if (n % i == 0)
+//             return false;
+//         i++;
+//     }
+//     return true;
+// }
+
+
+//! Fourth approach to find number is prime or not
+
+/*
+let n = 99;
+let i = 2;
+
+if (Prime(n))
+    console.log(n, " Is prime");
+else
+    console.log(n, " Is not prime");
+
+
+function Prime(n) {
+    if (n < 2)
+        return false;
+    else if (n == 2 || n == 3)
+        return true;
+    else if (n % 2 == 0)
+        return false;
+
+    let i = 3;
+
+    while (i * i <= n) {
+        if (n % i == 0)
+            return false;
+        i += 2;
+    }
+    return true;
+}
+
+*/
 
 
 
 // ! Question 12
-// ! Print fibonacci number
+// ! Print fibonacci number  [first approach]
+/*
 
-// let num = 7;
-// let a = 0
-// let b = 1;
-// let i = 2;
+let num = 7;
+let a = 0
+let b = 1;
+let i = 2;
 
-// console.log(a);
-// console.log(b);
+console.log(a);
+console.log(b);
 
-// while (i <= num) {
-//     c = a + b;
-//     console.log(c);
-//     a = b;
-//     b = c;
-//     i++;
-// }
+while (i <= num) {
+    c = a + b;
+    console.log(c);
+    a = b;
+    b = c;
+    i++;
+}
+*/
+
+
+// ! Print fibonacci number  [first approach]
+
+
+let n = 7;
+let n1 = 0;
+let n2 = 1;
+
+let i = 0;
+console.log(n1);
+
+while (i <= n) {
+    /* n3 = n1 + n2;
+     console.log(n3);
+
+     n2 = n1;
+     n1 = n3;
+     i++; */
+
+    n3 = n1 + n2;
+    console.log(n3);
+    n1 = n2;
+    n2 = n3;
+    i++;
+}
+
+
+
+
+
 
 //! Question 13
 //! Print the nth term of the fibobacci
