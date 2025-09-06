@@ -55,7 +55,8 @@ function printCount(n) {
 }
 
 let countValue = printCount(n);
-console.log("Total digit : ", countValue); */
+console.log("Total digit : ", countValue);
+ */
 
 
 
@@ -63,16 +64,36 @@ console.log("Total digit : ", countValue); */
 //todo: Print digit from left to right
 
 /*
-let n = "43705";
-let count = 0;
+let n = 45762;
 
 function printDigitLtoR(n) {
-    while (n > 0) {
-        count++;
-        n = parseInt(n / 10);
+    let numStr = n.toString();
+    for (let i = 0; i < numStr.length; i++) {
+        console.log(numStr[i]);
     }
-    return count;
 }
 
-let countValue = printDigitLtoR(n);
-console.log("Total digit : ", countValue);*/
+printDigitLtoR(n);
+*/
+
+
+//!      Question 05
+//todo:  Find biggest digit from number
+
+
+/*
+function getBiggest(n) {
+    let big = parseInt(n % 10);
+
+    while (n > 0) {
+        let rem = parseInt(n % 10);
+        if (rem > big)
+            big = rem;
+        n = parseInt(n / 10);
+    }
+    return big;
+}
+
+let n = 39249;
+console.log("Biggest Number is : ", getBiggest(n)); 
+*/
