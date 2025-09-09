@@ -1,3 +1,5 @@
+"use strict";
+
 //! Question 02.
 //todo Print the even number only
 
@@ -16,8 +18,6 @@ function printDigit(n) {
 }
 
 printDigit(n); */
-
-
 //! Question 03.
 //todo Print the odd number only
 
@@ -36,9 +36,6 @@ function printDigit(n) {
 }
 
 printDigit(n); */
-
-
-
 //! Question 04.
 //todo Print the digit which is greater than and equal to 5
 
@@ -58,12 +55,8 @@ function printDigitGreaterThanFive(n) {
 
 printDigitGreaterThanFive(n);
 */
-
-
-
 //!      Question 05
 //todo:  Find biggest digit from number
-
 
 /*
 function getBiggest(n) {
@@ -81,13 +74,8 @@ function getBiggest(n) {
 let n = 39249;
 console.log("Biggest Number is : ", getBiggest(n)); 
 */
-
-
-
-
 //!      Question 05
 //todo:  Print the difference of biggest and smallest digit.
-
 
 /*
 function getSmallest(n) {
@@ -120,9 +108,6 @@ function getBiggest(n) {
 let n = 31249;
 console.log("Difference in Biggest and smallest is : ", getBiggest(n) - getSmallest(n));
 */
-
-
-
 //! Question 07.
 //todo: count the total digit of a number
 
@@ -141,14 +126,10 @@ function printCount(n) {
 let countValue = printCount(n);
 console.log("Total digit : ", countValue);
  */
-
-
-
 //! Question 08.
 //todo: Print digit from left to right
-
-
 //! first approach
+
 /*
 let n = 385334;
 let count = 0;
@@ -169,7 +150,6 @@ function chkNumberIncreasing(n) {
 
 chkNumberIncreasing(n);
 */
-
 //! 2nd approach
 
 /*
@@ -184,7 +164,6 @@ function chkNumberIncreasing(n) {
 
 chkNumberIncreasing(n);
 */
-
 //! Question 10
 //todo: Count how many zero in the given number
 
@@ -203,8 +182,6 @@ let count = 0;
 let n = 23002;
 console.log("In the number : ", n, " having ", countZero(n), " Zero.");
 */
-
-
 //! Question 11
 //todo: Count how many 3 in the given number
 
@@ -223,9 +200,6 @@ let count = 0;
 let n = 23002;
 console.log("In the number : ", n, " having ", countThree(n), " Three.");
 */
-
-
-
 //! Question 12.
 //todo Count the even digit in the given number.
 
@@ -247,9 +221,6 @@ const n = 43705;
 let count = 0;
 console.log("Total Even digit in ", n, " is : ", countEvenDigit(n));
 */
-
-
-
 //! Question 13.
 //todo Count the odd digit in the given number.
 
@@ -271,8 +242,6 @@ const n = 43705;
 let count = 0;
 console.log("Total Odd digit in ", n, " is : ", checkAdjacentDigits(n));
 */
-
-
 //! Question 14.
 //todo count the digit which is greater than and equal to 5
 
@@ -295,8 +264,6 @@ let n = 43705;
 let count = 0;
 console.log("In the number : ", n, " having ", countDigitLessThanFive(n), " numbers less than or equal to 5.");
  */
-
-
 //! Question 15.
 //todo Print of sum of each digit of a number.
 
@@ -314,8 +281,6 @@ const n = 43705;
 let sum = 0;
 console.log("Total Odd digit in ", n, " is : ", sumOfDigit(n));
 */
-
-
 //! Question 16.
 //todo Print of sum of each even digit of a given number.
 
@@ -335,8 +300,6 @@ let sum = 0;
 console.log("Given number is : ", n);
 console.log("Sum of even digit is ", sumOfEvenDigit(n));
 */
-
-
 //! Question 17.
 //todo Print of sum of each odd digit of a given number.
 
@@ -356,8 +319,6 @@ let sum = 0;
 console.log("Given number is : ", n);
 console.log("Sum of odd digit is ", sumOfOddDigit(n));
 */
-
-
 //! Question 17.
 //todo Print of sum of each odd digit of a given number.
 
@@ -377,8 +338,6 @@ let sum = 0;
 console.log("Given number is : ", n);
 console.log("Sum of odd digit is ", sumOfOddDigit(n));
 */
-
-
 //! Question 19.
 //todo Check the product of each number is even or odd.
 
@@ -401,8 +360,6 @@ let product = 1;
 console.log("Given number is : ", n);
 console.log("product of digit is ", productOfDigitEvenOrOdd(n));
 */
-
-
 //!     Question 21
 //todo: return true if all the digit of a given number is in increasing order.
 
@@ -443,9 +400,6 @@ function chkNumberIncreasing(n) {
     return true;
 }
 */
-
-
-
 //!     Question 22
 //todo: return true if all the digit of a given number is in decreasing order.
 
@@ -486,56 +440,24 @@ function chkNumberDecreasing(n) {
     return true;
 }
 */
-
-
-
 //!     Question 23.
 //todo: return true if it has different adjacent digits.
 
 /**/
 function checkAdjacentDigits(n) {
-    while (n > 0) {
-        let x = n % 10;
-        let y = n % 100;
-        if (x == y)
-            return false;
+  while (n > 0) {
+    var x = n % 10;
+    var y = n % 100;
+    if (x == y) return false;
+    n = parseInt(n / 10);
+  }
 
-        n = parseInt(n / 10);
-    }
-    return true;
+  return true;
 }
 
-const n = 43705;
-let count = 0;
-console.log(checkAdjacentDigits(n));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//! Question 26
+var n = 43705;
+var count = 0;
+console.log(checkAdjacentDigits(n)); //! Question 26
 //todo Print factorial of each digits of a number
 
 /*
