@@ -492,51 +492,49 @@ function chkNumberDecreasing(n) {
 //!     Question 23.
 //todo: return true if it has different adjacent digits.
 
-/**/
+/*
+
+let n = 1234;
+if (checkAdjacentDigits(n))
+    console.log("true");
+else
+    console.log("false");
+
+
+function counter(num) {
+    let count = 0;
+    while (num > 0) {
+        count++;
+        num = parseInt(num / 10);
+    }
+    return count;
+}
+
+
+
 function checkAdjacentDigits(n) {
-    while (n > 0) {
-        let x = n % 10;
-        let y = n % 100;
-        if (x == y)
+    let val = 10;
+    let k = counter(n);
+    let digit = 0;
+
+    while (k > 0) {
+        digit = (parseInt(n / (10 ** (k - 1)))) % 10;
+        if (digit == val)
             return false;
 
-        n = parseInt(n / 10);
+        val = digit;
+        k--;
     }
     return true;
 }
 
-const n = 43705;
-let count = 0;
-console.log(checkAdjacentDigits(n));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 
 //! Question 26
 //todo Print factorial of each digits of a number
+//todo check also entered number is strong or not.
 
 /*
 function factorial(rem) {
@@ -550,10 +548,6 @@ function factorial(rem) {
 }
 
 
-function sumOfFactorial() {
-
-}
-
 function getFactorialOfEachDigit(n) {
     while (n > 0) {
         let rem = n % 10;
@@ -563,12 +557,89 @@ function getFactorialOfEachDigit(n) {
     console.log("Sum of all factorial : ", sum);
 }
 
-function (sum, n) {
-    if
+
+function isStrong(sum, n) {
+    if (sum == n)
+        console.log(n, " is a strong number");
+    else
+        console.log(n, " is a not strong number");
 }
 
+
+
 let sum = 0;
-let n = 12;
+let n = 145;
 console.log("Number is : ", n);
 getFactorialOfEachDigit(n);
+isStrong(sum, n);
+
 */
+
+
+
+//todo:  reverse the given number
+
+/*
+function getReverse(n) {
+    let rev = 0;
+    while (n > 0) {
+        let rem = n % 10;
+        rev = 10 * rev + rem;
+        n = parseInt(n / 10);
+    }
+    return rev;
+}
+
+let n = 3421;
+console.log("Reverse of a ", n, " is : ", getReverse(n));
+
+*/
+
+
+//todo:  Check given number is palindrome or not
+
+/*
+function Palindrome(n) {
+    let rev = 0;
+    while (n > 0) {
+        let rem = n % 10;
+        rev = 10 * rev + rem;
+        n = parseInt(n / 10);
+    }
+    return rev;
+}
+
+let n = 343;
+let orignalNumber = n;
+if (Palindrome(n) == orignalNumber)
+    console.log("Yes palindrome..!!");
+else
+    console.log("Not palindrome..!");
+
+*/
+
+
+//todo: Chaeck given string is palindrome or not
+
+/*
+function stringReverse(str) {
+    let rev = "";
+    let i = 0;
+
+    while (i < str.length) {
+        rev = str.charAt(i) + rev;
+        i++;
+    }
+    return str.equalsIgnoreCase(rev);
+}
+
+let str = "avi";
+if (stringReverse(str))
+    console.log("String is Palindrome");
+else
+    console.log("String is not palindrome");
+*/
+
+function stringPalindrome(str) {
+    let start = 0;
+}
