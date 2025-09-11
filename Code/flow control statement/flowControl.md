@@ -178,23 +178,49 @@ while (true) {
 }
 ```
 
+<br><br><br><br><br><br><br><br><br>
+
 ## continue keyword
 
 `continue` statement is used to one or multiple executions from the loop.
 When `continue` executes then control immediately transferred to the increment statement.
 
-**⚠️ Important:** `continue` is not used with `while` loop otherwise loop becomes infinite. Because at the time of execution when control finds `continue`, it immediately looks for the increment in the same place where condition is mentioned. But in the `while` loop there is no increment operator, so the loop becomes infinite.
+### ⚠️ Critical Behavior Differences:
 
-<br><br>
+#### ✅ `for` loop - SAFE with `continue`
+- When `continue` executes, control jumps directly to the **increment/update expression**, then re-checks the condition
+- Since the increment is part of the loop structure, there's **no risk of infinite loop** from using `continue`
 
-**Example:**
+#### ⚠️ `while` loop - DANGEROUS with `continue`
+- When `continue` executes, it skips remaining code and jumps directly to the **condition check**
+- There is **no automatic increment**, so if you don't manually update the loop variable before `continue`, it causes an **infinite loop**
+
+#### ⚠️ `do-while` loop - DANGEROUS with `continue`
+- When `continue` executes, it skips remaining code and jumps directly to the **condition check** (similar to `while`)
+- Again, there is **no automatic increment**, so if the loop variable isn't updated before `continue`, the loop becomes **infinite**
+
+**Safe Example (for loop):**
 
 ```js
 for (let i = 0; i < 15; i++) {
 
     if (i == 7 || i == 10)
-        continue;
+        continue;  // Safe - jumps to i++
 
     console.log(i);
+}
+```
+
+**Dangerous Example (while loop):**
+
+```js
+let i = 0;
+while (i < 15) {
+
+    if (i == 7)
+        continue;  // INFINITE LOOP! i never increments
+
+    console.log(i);
+    i++;  // This line never executes when continue is triggered
 }
 ```
