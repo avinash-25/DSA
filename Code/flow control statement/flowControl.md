@@ -224,3 +224,16 @@ while (i < 15) {
     i++;  // This line never executes when continue is triggered
 }
 ```
+
+
+## for loop
+
+- `for` loop is an entry control loop. which executes repeatdely until loop condition will be true.
+
+***Syntax***
+
+```js
+for (initialization; condition; increment / decrement){
+    //loop body
+}
+```
