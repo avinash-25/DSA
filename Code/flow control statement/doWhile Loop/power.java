@@ -1,14 +1,16 @@
 import java.util.Scanner;
 
-class askToFindFactorial{
+class Power{
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         char ch;
         do { 
-           System.out.println("Enter number to find factorial : ");
-           int n = sc.nextInt();
-           System.out.println("Fcatorial of "+n+" is "+fact(n));
+           System.out.println("Enter first number : ");
+           int a = sc.nextInt();
+           System.out.println("Enter seconf number : ");
+           int b = sc.nextInt();
+           System.out.println("");
            System.out.println("If you want to continue then enter 'y' or 'Y'....!!");
            ch = sc.next().charAt(0);
         } while (ch == 'y' || ch == 'Y');
