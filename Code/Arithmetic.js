@@ -6,6 +6,8 @@
 * ! d. Remove the last two digit of the number
 */
 
+// Question 01.
+
 function arithmeticOperations(n) {
 
     const lastDigit = n % 10;
