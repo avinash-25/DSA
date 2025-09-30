@@ -6,10 +6,10 @@
 - If in the row having same value then thats directly connected with outer loop.
 - If the value change in the row then this is handled by the inner loop.
 
-
 ### Note
 
-**1.**  If values are same in row then think about `i`(outer loop) to generate the pattern.
+**1.** If values are same in row then think about `i`(outer loop) to generate the pattern.
+
 ```css
 11111
 22222
@@ -17,19 +17,20 @@
 44444
 55555
 ```
+
 **Here in the row having same value so main role played by the outer loop**
 
 - System.outprint(i+" ");
 
 **2.** if values are same in each column then think of `j`(inner loop) to print it.
 
-```css
+````css
 12345
 12345
 12345
 12345
 12345
-```
+```s
 
 **Here in the column having same value so main role played by the inner loop**
 
@@ -53,8 +54,7 @@
             System.out.println();
         }
     }
-```
-
+````
 
 ### 2. Format where space and star are required
 
@@ -82,4 +82,4 @@
     }
 ```
 
-- First check How many star in the first row and consider **star** = How many star in the frst row.
+- First check How many star in the first row and consider **star** = How many star in the first row.
