@@ -161,3 +161,11 @@ O(1) < O(n) < O(n^2) < O(n^3)
 `O(n^3)` : Worst time
 
 
+
+`O(1) > O(log n) > O(root n) >  O(n) > O(nlog) > O(n^2) > O(n^3) > O(2^n) > O(n!)`
+
+***BEST/FASTEST***: O(1) > O(log n) > O(root n) >  O(n)
+***OK***: O(nlog) > O(n^2)
+***BAD***: O(n^3) > O(2^n) > O(n!)
+
+
