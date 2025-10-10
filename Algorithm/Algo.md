@@ -99,6 +99,7 @@ O(time)  = O(n*(3n+1))
 ---
 
 
+
 #### Alogo - 6
 
 ```java
@@ -168,4 +169,4 @@ O(1) < O(n) < O(n^2) < O(n^3)
 ***OK***: O(nlog) > O(n^2)
 ***BAD***: O(n^3) > O(2^n) > O(n!)
 
-
+![alt text](20.jpg)
