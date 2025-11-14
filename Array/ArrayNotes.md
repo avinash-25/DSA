@@ -1,496 +1,570 @@
-# Java Arrays - Complete Theory Notes
+# Array in Java
 
-## 📚 Table of Contents
+## What is Array?
 
-- [Java Arrays - Complete Theory Notes](#java-arrays---complete-theory-notes)
-  - [📚 Table of Contents](#-table-of-contents)
-  - [Introduction to Arrays](#introduction-to-arrays)
-    - [Key Points](#key-points)
-  - [Features of Arrays](#features-of-arrays)
-    - [When to Use Arrays](#when-to-use-arrays)
-  - [Array Declaration](#array-declaration)
-    - [Syntax Options](#syntax-options)
-    - [Examples](#examples)
-  - [Array Creation](#array-creation)
-    - [1. Without using `new` keyword](#1-without-using-new-keyword)
-    - [2. Using `new` keyword](#2-using-new-keyword)
-  - [Array Operations](#array-operations)
-    - [Reverse Array](#reverse-array)
-    - [Rotate Array](#rotate-array)
-    - [Frequency Count](#frequency-count)
-    - [Second Largest Element](#second-largest-element)
-  - [Array Traversal](#array-traversal)
-    - [1. For Loop](#1-for-loop)
-    - [2. Enhanced For Loop (For-Each)](#2-enhanced-for-loop-for-each)
-  - [Sorting](#sorting)
-    - [Bubble Sort](#bubble-sort)
-  - [💡 Coding Trick](#-coding-trick)
-  - [📝 Important Points to Remember](#-important-points-to-remember)
-  - [🎯 Common Array Methods](#-common-array-methods)
+Array is the most fundamental data structure which is used to store multiple elements together.
 
----
+## Features of Array
 
-<br><br>
+### (i) Homogeneous
 
-## Introduction to Arrays
+- It will store only similar types of elements
 
-**Array** is a group or collection of similar types of elements stored in contiguous memory locations.
+### (ii) Fixed Size
 
-### Key Points
+- Array in Java is fixed in size
+- Once an array is created, we cannot change/modify its size
 
-- Stores elements of the **same data type**
-- **Fixed size** - once created, size cannot be increased or decreased
-- **Zero-based indexing** - first element at index 0, last at index (length-1)
-- Arrays are **non-primitive data types** (reference types) stored in **Heap memory**
-- Provides **fast performance** due to direct index-based access
-- Arrays are **objects** in Java
+### (iii) No Built-in Methods Support
+
+- In Java, Array will not have support of any inbuilt methods
+- Methods are provided externally by **Arrays Class** or using **Stream** feature
+
+### (iv) Index-based Data Structure
+
+- Array is an index-based data structure where indexing always starts from 0
+- The last index will be `length - 1`
+
+### (v) Built-in Variable: Length
+
+- Array has an in-built variable called `length` which is used to get the size of Array
+
+## Key Points
+
+- **Fixed:** Arrays are fixed in size
+- **No support method in Arrays:** Cannot use inbuilt methods directly
+- **No direct support:** Not built-in, but we can import
+- **Similar types of element:** We can add in Array
+- **In Java homogeneous data stored in Array**
+- **Most basic data structure is Array**
+- **Only Variable Support:** `arr.length`
 
 ---
 
-## Features of Arrays
+## Declaration of Array
 
-| Feature                      | Description                                          |
-| ---------------------------- | ---------------------------------------------------- |
-| **Fixed Size**               | Once created, array size cannot be modified          |
-| **Similar Type**             | Can only store elements of the same data type        |
-| **Zero Indexing**            | Index starts from 0 and ends at (length - 1)         |
-| **No Built-in Methods**      | Limited built-in methods compared to Collections     |
-| **Variable Length Property** | Has `.length` property to get array size             |
-| **Fast Access**              | Direct index-based access provides O(1) performance  |
-| **Memory Management**        | Not efficient in memory management due to fixed size |
-| **Location**                 | Stored in Heap area as objects                       |
-
-### When to Use Arrays
-
-- Use arrays when you know the **exact size** beforehand
-- When you need **fast access** to elements by index
-- When performance is critical
-- Avoid when size is dynamic or frequent insertions/deletions are needed
-
----
-
-## Array Declaration
-
-### Syntax Options
+### Syntax Options:
 
 ```java
-// Option 1: Brackets after data type (Recommended)
-dataType[] varName;
+// Option 1
+datatype[] varName;
 
-// Option 2: Brackets after variable name
-dataType varName[];
+// Option 2
+datatype [] varName;
+
+// Option 3
+datatype varName[];
 ```
 
-### Examples
+### Examples:
 
 ```java
-// Integer array
-int[] numbers;
+int[] marks = {41, 23, 40};
+// Index:    0   1   2
 
-// Double array
-double[] salaries;
-
-// String array
-String[] names;
-
-// Boolean array
-boolean[] isPresent;
-
-// Character array
-char[] characters;
-
-// Employee array (custom object)
-Employee[] employees;
+// Accessing elements
+marks[0] = 41;
+marks[1] = 23;
+marks[2] = 40;
 ```
+
+---
+
+## Primitive vs Non-Primitive Types
+
+### Primitive Types:
+
+- `int[]`
+- `double[]`
+- `char[]`
+
+### Non-Primitive Types:
+
+- `String[]`
+- `Product[]`
+- `Employee[]`
 
 ---
 
 ## Array Creation
 
-Arrays can be created in **two ways**:
+Array can be created in two ways:
 
-### 1. Without using `new` keyword
+### (1) Without using `new` keyword
 
-**Array Literal Syntax:**
+Array can be created without keyword only by using `{}` and by providing multiple values.
+
+**Syntax:**
 
 ```java
-dataType[] varName = {value1, value2, value3, ...};
+datatype[] varName = {val1, val2, val3, ...};
 ```
 
 **Examples:**
 
 ```java
-// Integer array with 5 elements
-int[] nums = {10, 20, 30, 40, 50};
-System.out.println(nums.length);  // Output: 5
+// Example 1
+int[] a = {10, 20, 30, 40};
 
-// Accessing elements
-System.out.println(nums[0]);                // Output: 10 (first element)
-System.out.println(nums[2]);                // Output: 30 (third element)
-System.out.println(nums[nums.length - 1]);  // Output: 50 (last element)
+// Example 2
+double[] b = {24.1, 12, 23};
 
-// ⚠️ ArrayIndexOutOfBoundsException
-// System.out.println(nums[nums.length]);   // Error! Index 5 doesn't exist
+// Example 3
+String[] c = {"RAM", "Sohan", "Mohan"};
 
-// Multiple examples
-int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-double[] prices = {99.99, 149.50, 79.99};
-String[] cities = {"Delhi", "Mumbai", "Bangalore"};
+// Example 4
+Car[] cars = {new Car("Tata", 1456), new Car("BMW", 423)};
 ```
 
-**Memory Representation:**
+#### Memory Representation:
+
+For array `a = {10, 20, 30, 40, 50}`:
 
 ```
-Stack Area:
-+-------+
-| nums  | ──────┐
-+-------+       │
-                │
-                ▼
-Heap Area:
 Index:  [0] [1] [2] [3] [4]
-Value:  [10][20][30][40][50]
+Value:   10  20  30  40  50
 ```
+
+**System.out.println(a[0])** will give element from last index
+
+**Operations:**
+
+- `sop(a)` → Prints reference/hashcode (e.g., `I@hexno`)
+- `sop(a.length)` → `5`
+- `sop(a[0])` → `10`
+- `sop(a[3])` → `40`
+- `a[2] = 72` → Modifies value at index 2
+- `a[5] = 24` → **ArrayIndexOutOfBound Exception** (index out of bounds)
 
 ---
 
-### 2. Using `new` keyword
+### (2) With using `new` keyword
+
+We can create an array by using `new` keyword with appropriate size. In this manner, array is created with default value and later we have to assign the value.
 
 **Syntax:**
 
 ```java
-dataType[] varName = new dataType[size];
+int[] a = new int[5];
 ```
 
-**Examples:**
+#### Memory Representation (with default values):
+
+```
+Index:  [0] [1] [2] [3] [4]
+Value:   0   0   0   0   0
+```
+
+**Assigning Values:**
 
 ```java
-// Create integer array of size 5
-int[] nums = new int[5];
-
-// Assign values individually
-nums[0] = 12;
-nums[1] = 25;
-nums[2] = 48;
-nums[3] = 36;
-nums[4] = 89;
-
-// Create and initialize in one line
-int[] a = new int[]{3, 5, 200};
-
-// Default values for different types
-int[] defaultInt = new int[5];
-// All elements initialized to 0: [0, 0, 0, 0, 0]
-
-double[] defaultDouble = new double[3];
-// All elements initialized to 0.0: [0.0, 0.0, 0.0]
-
-boolean[] defaultBoolean = new boolean[3];
-// All elements initialized to false: [false, false, false]
-
-String[] names = new String[3];
-// All elements initialized to null: [null, null, null]
+a[0] = 10;
+a[1] = 20;
+a[2] = 30;
+a[3] = 40;
+a[4] = 50;
 ```
 
-**Default Values:**
+**Note:**
 
-| Data Type                              | Default Value             |
-| -------------------------------------- | ------------------------- |
-| int, byte, short, long                 | 0                         |
-| float, double                          | 0.0                       |
-| boolean                                | false                     |
-| char                                   | '\u0000' (null character) |
-| Reference types (String, Object, etc.) | null                      |
+- `int a = {10, 20, 30}`
+- `a = {40, 20}` ❌ **Cannot modify** - We cannot reassign array
+
+**Operations:**
+
+- `sop(a)` → Prints `I@hexno`
+- `sop(a.length)` → `5`
+- `sop(a[0])` → `10`
+- `sop(a[5])` → **ArrayIndexOutOfBound Exception**
 
 ---
 
-## Array Operations
+## Accessing Array Using `sop(a.length-1)`
 
-### Reverse Array
-
-**Problem:** Reverse the elements of an array
+It will give element from last index
 
 ```java
-int[] nums = {10, 20, 30, 40, 50};
-
-// Using two-pointer approach
-int left = 0;
-int right = nums.length - 1;
-
-while (left < right) {
-    // Swap elements
-    int temp = nums[left];
-    nums[left] = nums[right];
-    nums[right] = temp;
-
-    left++;
-    right--;
-}
-
-// Result: [50, 40, 30, 20, 10]
+sop(a[a.length-1]); // 50
 ```
 
 ---
 
-### Rotate Array
+## Run a Loop Through Array
 
-**Problem:** Rotate array by k positions
+**Given:**
 
 ```java
-// Rotate right by 2 positions
-// Input: [1, 2, 3, 4, 5], k = 2
-// Output: [4, 5, 1, 2, 3]
+int a = {10, 20, 30, 40, 50};
+```
 
-public static void rotateArray(int[] arr, int k) {
-    int n = arr.length;
-    k = k % n; // Handle k > n
+### (i) Using For Loop
 
-    // Reverse entire array
-    reverse(arr, 0, n - 1);
-    // Reverse first k elements
-    reverse(arr, 0, k - 1);
-    // Reverse remaining elements
-    reverse(arr, k, n - 1);
+```java
+for (int i = 0; i < a.length; i++) {
+    sop(a[i]);
 }
+```
 
-private static void reverse(int[] arr, int start, int end) {
-    while (start < end) {
-        int temp = arr[start];
-        arr[start] = arr[end];
-        arr[end] = temp;
-        start++;
-        end--;
+**Output:**
+
+```
+10
+20
+30
+40
+50
+```
+
+### (ii) Using For-Each Loop
+
+```java
+for (int i : a) {
+    sop(i);
+}
+```
+
+**Output:**
+
+```
+10
+20
+30
+40
+50
+```
+
+### Using JavaScript
+
+```javascript
+let nums = [10, 20, 30, 40, 50];
+console.log(nums); // [10, 20, 30, 40, 50]
+```
+
+#### (1) For Loop
+
+```javascript
+for (let i = 0; i < nums.length; i++) {
+  console.log(a[i]);
+}
+```
+
+**Output:**
+
+```
+10
+20
+30
+40
+50
+```
+
+#### (2) For-Each
+
+```javascript
+for (int i of nums) {
+    console.log(i);
+}
+```
+
+**Output:**
+
+```
+10
+20
+30
+40
+50
+```
+
+---
+
+## Common Array Operations
+
+### Q1: Access all even index elements from array
+
+```java
+int a[] = {10, 20, 30, 40, 50};
+
+for (int i = 0; i < a.length; i++) {
+    if (i % 2 == 0) {
+        sop(a[i]);
     }
 }
 ```
 
+**Output:**
+
+```
+10
+30
+50
+```
+
 ---
 
-### Frequency Count
-
-**Problem:** Count frequency of each element
+### Q2: Access all even elements from array
 
 ```java
-int[] nums = {1, 2, 2, 3, 3, 3, 4, 4, 4, 4};
+int a[] = {10, 20, 30, 40, 50};
 
-// Using array to store frequency
-int[] frequency = new int[100]; // Assuming max value < 100
-
-for (int num : nums) {
-    frequency[num]++;
-}
-
-// Print frequencies
-for (int i = 0; i < frequency.length; i++) {
-    if (frequency[i] > 0) {
-        System.out.println(i + " appears " + frequency[i] + " times");
+for (int i = 0; i < a.length; i++) {
+    if (a[i] % 2 == 0) {
+        sop(a[i]);
     }
 }
 ```
 
+**Output:**
+
+```
+10
+20
+30
+40
+50
+```
+
 ---
 
-### Second Largest Element
-
-**Problem:** Find the second largest element in array
+### Q3: Count all even elements from array
 
 ```java
-int[] nums = {10, 50, 30, 80, 70};
+int a[] = {10, 20, 15, 30, 11};
+int count = 0;
 
-int largest = Integer.MIN_VALUE;
-int secondLargest = Integer.MIN_VALUE;
-
-for (int num : nums) {
-    if (num > largest) {
-        secondLargest = largest;
-        largest = num;
-    } else if (num > secondLargest && num != largest) {
-        secondLargest = num;
+for (int i = 0; i < a.length; i++) {
+    if (a[i] % 2 == 0) {
+        count++;
     }
 }
 
-System.out.println("Second Largest: " + secondLargest); // Output: 70
+System.out.println(count);
+```
+
+**Output:**
+
+```
+3
 ```
 
 ---
 
-## Array Traversal
-
-### 1. For Loop
-
-**Traditional for loop with index:**
+### Q4: Access all elements of array from end
 
 ```java
-int[] nums = {10, 20, 30, 40, 50};
+int a[] = {10, 20, 30, 40, 50};
 
-// Forward traversal
-for (int i = 0; i < nums.length; i++) {
-    System.out.println(nums[i]);
-}
-
-// Output:
-// 10
-// 20
-// 30
-// 40
-// 50
-
-// Backward traversal
-for (int i = nums.length - 1; i >= 0; i--) {
-    System.out.println(nums[i]);
+for (int i = a.length - 1; i >= 0; i--) {
+    sop(a[i]);
 }
 ```
 
-**Advantages:**
+**Or:**
 
-- Can access index
-- Can modify elements
-- Can traverse in any direction
+```java
+for (int i = 0; i < a.length; i++) {
+    sop(a[a.length - 1 - i]);
+}
+```
 
 ---
 
-### 2. Enhanced For Loop (For-Each)
-
-**Syntax:**
+### Q5: Print and Count all three digit numbers from array
 
 ```java
-for (dataType varName : array) {
-    // code
-}
-```
+int a[] = {121, 24, 423};
+int count = 0;
 
-**Examples:**
-
-```java
-int[] nums = {10, 20, 30, 40, 50};
-
-// For-each loop
-for (int num : nums) {
-    System.out.println(num);
-}
-
-// With Strings
-String[] names = {"Alice", "Bob", "Charlie"};
-for (String name : names) {
-    System.out.println("Hello, " + name);
-}
-```
-
-**Advantages:**
-
-- Cleaner and more readable
-- No index management
-- Less prone to errors
-
-**Limitations:**
-
-- Cannot access index
-- Cannot modify array elements
-- Only forward traversal
-
----
-
-## Sorting
-
-### Bubble Sort
-
-**Algorithm:** Compare adjacent elements and swap if in wrong order
-
-**Implementation:**
-
-```java
-public static void bubbleSort(int[] arr) {
-    int n = arr.length;
-
-    for (int i = 0; i < n - 1; i++) {
-        boolean swapped = false;
-
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                // Swap
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                swapped = true;
-            }
-        }
-
-        // If no swaps, array is sorted
-        if (!swapped) break;
+for (int i = 0; i < a.length; i++) {
+    if (a[i] > 99 && a[i] < 1000) {
+        sop(a[i]);
+        count++;
     }
 }
 
-// Example usage
-int[] nums = {64, 34, 25, 12, 22, 11, 90};
-bubbleSort(nums);
-// Result: [11, 12, 22, 25, 34, 64, 90]
+sop("Count is: " + count);
 ```
 
-**Time Complexity:**
+**Output:**
 
-- Best Case: O(n) - when array is already sorted
-- Average Case: O(n²)
-- Worst Case: O(n²)
-
-**Space Complexity:** O(1)
+```
+121
+423
+Count is: 2
+```
 
 ---
 
-## 💡 Coding Trick
-
-**Print even/odd without if-else or ternary operator:**
+### Q6: Print sum of all elements from array
 
 ```java
-int n = 325;
-String[] s = {"Even", "Odd"};
-System.out.println(n + " is: " + s[n % 2]);
+int a[] = {10, 20, 30, 40};
+int sum = 0;
 
-// Explanation:
-// n % 2 = 0 (even) → s[0] → "Even"
-// n % 2 = 1 (odd)  → s[1] → "Odd"
+for (int i = 0; i < a.length; i++) {
+    sum = a[i] + sum;
+}
+
+sop("Sum: " + sum);
+```
+
+**Output:**
+
+```
+Sum: 100
 ```
 
 ---
 
-## 📝 Important Points to Remember
-
-1. **Array Index:** Always starts from 0
-2. **Array Length:** Use `array.length` (not `array.length()`)
-3. **Fixed Size:** Cannot resize after creation
-4. **Default Values:** Numeric types → 0, boolean → false, objects → null
-5. **Exception:** `ArrayIndexOutOfBoundsException` when accessing invalid index
-6. **Memory:** Arrays are stored in Heap, references in Stack
-7. **Performance:** O(1) for access, but O(n) for search in unsorted array
-8. **Copy:** Use `System.arraycopy()` or `Arrays.copyOf()` for copying
-
----
-
-## 🎯 Common Array Methods
+### Q7: Print Average of all elements from Array
 
 ```java
-import java.util.Arrays;
+int a[] = {10, 20, 30};
+int sum = 0;
+int count = 0;
+int avg = 0;
 
-int[] nums = {5, 2, 8, 1, 9};
+for (int i = 0; i < a.length; i++) {
+    sum = a[i] + sum;
+    count++;
+}
 
-// Sort array
-Arrays.sort(nums); // [1, 2, 5, 8, 9]
+avg = sum / count;
 
-// Binary search (array must be sorted)
-int index = Arrays.binarySearch(nums, 5); // Returns index
+sop(avg);
+```
 
-// Fill array with value
-Arrays.fill(nums, 0); // All elements become 0
+**Output:**
 
-// Copy array
-int[] copy = Arrays.copyOf(nums, nums.length);
+```
+20
+```
 
-// Compare arrays
-boolean isEqual = Arrays.equals(nums, copy);
+**Calculation:**
 
-// Convert to String
-String str = Arrays.toString(nums); // "[1, 2, 5, 8, 9]"
+```
+10 + 20 + 30 = 60
+60 / 3 = 20
 ```
 
 ---
 
-**End of Notes** ✨
+### Q8: WAP to Print and Count all the elements of array which are bigger than average value
+
+```java
+int a[] = {10, 20, 30};
+int count = 0;
+int avg = 0;
+int sum = 0;
+int num = 0;
+
+for (int i = 0; i < a.length; i++) {
+    sum = a[i] + sum;
+    count++;
+}
+
+avg = sum / count;
+
+if (a[i] > avg) {
+    sop(a[i]);
+    num++;
+}
+
+System.out.println(num);
+// "Count: " + count
+```
+
+**Alternative approach:**
+
+```java
+for (int i = 0; i < a.length; i++) {
+    if (a[i] > avg) {
+        sop(a[i]);
+        num++;
+    }
+}
+
+System.out.println(num);
+```
+
+**Output:**
+
+```
+30
+1
+```
+
+---
+
+### Q9: Print sum of all even elements from array
+
+```java
+int a[] = {10, 20, 30};
+int sum = 0;
+
+for (int i = 0; i < a.length; i++) {
+    if (a[i] % 2 == 0) {
+        sum = a[i] + sum;
+    }
+}
+
+sop("Sum of even element: " + sum);
+```
+
+**Output:**
+
+```
+40
+```
+
+---
+
+### Q10: Print sum of all odd elements from array
+
+```java
+int a[] = {10, 11, 15};
+int sum = 0;
+
+for (int i = 0; i < a.length; i++) {
+    if (a[i] % 2 == -1) {
+        sum = a[i] + sum;
+    }
+}
+
+sop(sum);
+```
+
+**Output:**
+
+```
+26
+```
+
+---
+
+## Practice Problems Summary
+
+1. **Access all even index** - Print elements at even indices
+2. **Access all even element** - Print all even elements
+3. **Count all even element** - Count how many even numbers
+4. **Access all element from end** - Traverse array backwards
+5. **Print and Count all 3 digit numbers** - Filter by range
+6. **Print Sum of elements** - Calculate total sum
+7. **Print Average** - Calculate mean value
+8. **Grand done fun for product in fun** (unclear task)
+9. **Access all they by only type** (unclear task)
+
+---
+
+## Notes
+
+- Always remember array indexing starts from **0**
+- Be careful with **ArrayIndexOutOfBound Exception** when accessing elements
+- Use `array.length` to get the size of array dynamically
+- For-each loop is simpler but doesn't provide index access
+- Cannot modify array size after creation in Java
+- Default values: `0` for int, `0.0` for double, `null` for objects
+
+---
+
+**End of Notes**
