@@ -567,4 +567,6 @@ sop(sum);
 
 ---
 
-**End of Notes**
+## Memoization
+
+It is a technique which is used to solve a recursive type problem by storing the intermediate steps into array or map based data structure.
