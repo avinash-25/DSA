@@ -1,19 +1,45 @@
 public class Sorting {
     public static void main(String[] args) {
 
+        System.out.println();
         int[] a = { 10, 8, 6, 4 };
-
-        System.out.println("\n1. BUBBLE SORT..!\n");
-
         System.out.print("Elements are : ");
         for (int i : a) {
             System.out.print(i + " ");
         }
+
+        System.out.println("\n1. BUBBLE SORT..!\n");
         bubbleSort(a);
 
         System.out.println("\n\n2. SELECTION SORT..!\n");
         selectionSort(a);
 
+        System.out.println("\n\n3. INSERTION SORT..!\n");
+        insertionSort(a);
+
+        System.out.println("\n");
+
+    }
+
+    // ! Insertion sort
+
+    public static void insertionSort(int a[]) {
+        for (int i = 0; i < a.length; i++) {
+            int key = a[i];
+            int j = i - 1;
+            while (j >= 0 && a[j] > key) {
+                a[j + 1] = a[j];
+                j--;
+            }
+            a[j + 1] = key;
+        }
+
+        System.out.println();
+
+        System.out.print("Elements are sorted : ");
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + " ");
+        }
     }
 
     // ! Selection sort
