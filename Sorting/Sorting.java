@@ -1,97 +1,138 @@
 public class Sorting {
+
     public static void main(String[] args) {
 
+        int[] a = { 8, 6, 8, 5, 5, 8, -2, 5, 5, 5, 5, 5, 6, 10, 8, 7, 5 };
+
+        System.out.print("\nOriginal Array: ");
+        printArray(a);
+
+        // ? 1. Bubble Sort
+
+        int[] b1 = a.clone();
+        System.out.println("\n1. BUBBLE SORT:");
+        bubbleSort(b1);
+        printArray(b1);
+
+        // ? 2. Selection Sort
+
+        int[] b2 = a.clone();
+        System.out.println("\n2. SELECTION SORT:");
+        selectionSort(b2);
+        printArray(b2);
+
+        // ? 3. Insertion Sort
+
+        int[] b3 = a.clone();
+        System.out.println("\n3. INSERTION SORT:");
+        insertionSort(b3);
+        printArray(b3);
+
+        // ? 4. Merge Sort
+
+        int[] b4 = a.clone();
+        System.out.println("\n4. MERGE SORT:");
+        mergeSort(b4, 0, b4.length - 1);
+        printArray(b4);
+
         System.out.println();
-        int[] a = { 10, 8, 6, 4 };
-        System.out.print("Elements are : ");
-        for (int i : a) {
-            System.out.print(i + " ");
-        }
-
-        System.out.println("\n1. BUBBLE SORT..!\n");
-        bubbleSort(a);
-
-        System.out.println("\n\n2. SELECTION SORT..!\n");
-        selectionSort(a);
-
-        System.out.println("\n\n3. INSERTION SORT..!\n");
-        insertionSort(a);
-
-        System.out.println("\n");
-
     }
 
-    // ! Insertion sort
+    public static void printArray(int[] a) {
+        for (int val : a) {
+            System.out.print(val + " ");
+        }
+        System.out.println();
+    }
 
-    public static void insertionSort(int a[]) {
+    // ! Merge Sort
+    public static void mergeSort(int[] a, int start, int end) {
+        if (start < end) {
+            int mid = start + (end - start) / 2;
+
+            mergeSort(a, start, mid);
+            mergeSort(a, mid + 1, end);
+
+            merge(a, start, mid, end);
+        }
+    }
+
+    public static void merge(int[] a, int start, int mid, int end) {
+        int[] merged = new int[end - start + 1];
+
+        int i = start;
+        int j = mid + 1;
+        int k = 0;
+
+        while (i <= mid && j <= end) {
+            if (a[i] <= a[j])
+                merged[k++] = a[i++];
+            else
+                merged[k++] = a[j++];
+        }
+
+        while (i <= mid)
+            merged[k++] = a[i++];
+        while (j <= end)
+            merged[k++] = a[j++];
+
+        for (int x = 0; x < merged.length; x++) {
+            a[start + x] = merged[x];
+        }
+    }
+
+    // ! Insertion Sort
+    public static void insertionSort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             int key = a[i];
             int j = i - 1;
+
             while (j >= 0 && a[j] > key) {
                 a[j + 1] = a[j];
                 j--;
             }
             a[j + 1] = key;
         }
-
-        System.out.println();
-
-        System.out.print("Elements are sorted : ");
-        for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i] + " ");
-        }
     }
 
-    // ! Selection sort
-
-    public static void selectionSort(int a[]) {
+    // ! Selection Sort
+    public static void selectionSort(int[] a) {
         int n = a.length;
 
         for (int i = 0; i < n - 1; i++) {
-            int min = a[i];
             int minIndex = i;
+
             for (int j = i + 1; j < n; j++) {
-                if (a[j] < min) {
-                    min = a[j];
+                if (a[j] < a[minIndex]) {
                     minIndex = j;
                 }
             }
-            a[minIndex] = a[i];
-            a[i] = min;
-        }
-        System.out.println();
 
-        System.out.print("Elements are sorted : ");
-        for (int i = 0; i < n; i++) {
-            System.out.print(a[i] + " ");
+            // Swap
+            int temp = a[minIndex];
+            a[minIndex] = a[i];
+            a[i] = temp;
         }
     }
 
-    // ! Bubble sort
-
-    public static void bubbleSort(int a[]) {
+    // ! Bubble Sort
+    public static void bubbleSort(int[] a) {
         int n = a.length;
 
         for (int i = 0; i < n - 1; i++) {
-            boolean flag = true;
-            for (int j = 0; j < n - 1 - i; j++) {
+            boolean swapped = false;
 
+            for (int j = 0; j < n - 1 - i; j++) {
                 if (a[j] > a[j + 1]) {
                     int temp = a[j];
                     a[j] = a[j + 1];
                     a[j + 1] = temp;
-
-                    flag = false;
+                    swapped = true;
                 }
             }
-            if (flag)
-                break;
-        }
-        System.out.println();
 
-        System.out.print("Elements are sorted : ");
-        for (int i = 0; i < n; i++) {
-            System.out.print(a[i] + " ");
+            if (!swapped)
+                break;
         }
     }
 }
@@ -100,5 +141,5 @@ public class Sorting {
 /*
  * Because in every iteration loop will run -1 times less then previous one
  * because afterwards elements are already sorted
- * 
+ *
  */
