@@ -177,3 +177,30 @@ Maximum time in a tree containing n nodes to traverse from root to any leaf or f
 ![alt text](image-12.png)
 
 ![alt text](image-13.png)
+
+### Types of binary tree
+
+1. Perfect Binary Tree
+
+If a tree is completely filled upto nth level then it called perfect binary tree.
+It does not have any space avaliable for extra node.
+
+2. Full Binary Tree
+
+If a tree has two child or zero child for every node then it is called Full Binary Tree.
+
+3. Complete Binary Tree
+
+If a tree is full except last level and the last level is filled from left to right
+
+```java
+class p1{
+
+}
+```
+
+case 1 (Print first then recursion.)
+
+case 2 (Recursion first then print.)
+
+case 3 (print before recursion and after recursion too)
