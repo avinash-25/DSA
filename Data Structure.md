@@ -22,7 +22,7 @@ When a group of data is stored not sequentially and stored in hierarchical or in
 
 If data is created in such a manner that we have data, data values, and there are various methods to work on the data, then it is called abstract data type.
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 ---
 
@@ -33,7 +33,7 @@ If data is created in such a manner that we have data, data values, and there ar
 - It is a linear data structure
 - Data stored in the form of nodes in a sequential manner
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 ### Advantages
 
@@ -47,7 +47,7 @@ If data is created in such a manner that we have data, data values, and there ar
 - If the node used in linkedlist contains node value and reference for the next node, then it is called singly linked list
 - In singly list, we can traverse only forward; we can't go backward
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 <br><br><br><br>
 
@@ -55,19 +55,19 @@ If data is created in such a manner that we have data, data values, and there ar
 
 - If the node of linkedlist contains node value along with reference for next and previous node, then it is called doubly linkedlist
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 #### 3. Singly Circular LinkedList
 
 - If singly linked list is designed in such a manner that its last node is not pointing to null but is pointing to the first node of linkedlist, then it is called singly circular linked list
 
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 
 #### 4. Doubly Circular LinkedList
 
 - If doubly linked list is designed in such a manner that the last node's next pointer is pointing to the first node and the first node's previous pointer is pointing to the last node, then it is called doubly circular linked list
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 ---
 
@@ -75,17 +75,17 @@ If data is created in such a manner that we have data, data values, and there ar
 
 Tree is a non-linear or hierarchical data structure where a node will have node value and reference for its child nodes.
 
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 <br><br>
 
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 
 ### Binary Tree
 
 If the node of a tree is designed in such a manner that it can have maximum 2 children or no child, then it is called binary tree.
 
-![alt text](image-8.png)
+![alt text](images/image-8.png)
 
 ### Tree Terminology
 
@@ -94,7 +94,7 @@ If the node of a tree is designed in such a manner that it can have maximum 2 ch
 - The topmost node of a tree is called root node
 - Every tree will have exactly one root node
 
-![alt text](image-16.png)
+![alt text](images/image-16.png)
 
 #### 2. Parent Node
 
@@ -168,39 +168,12 @@ Where `n` = number of levels
 
 **Total Edges** = `Total Nodes - 1`
 
-![alt text](image-11.png)
+![alt text](images/image-11.png)
 
 #### 13. Maximum Traversal Time
 
 Maximum time in a tree containing n nodes to traverse from root to any leaf or from any leaf to root node.
 
-![alt text](image-12.png)
+![alt text](images/image-12.png)
 
-![alt text](image-13.png)
-
-### Types of binary tree
-
-1. Perfect Binary Tree
-
-If a tree is completely filled upto nth level then it called perfect binary tree.
-It does not have any space avaliable for extra node.
-
-2. Full Binary Tree
-
-If a tree has two child or zero child for every node then it is called Full Binary Tree.
-
-3. Complete Binary Tree
-
-If a tree is full except last level and the last level is filled from left to right
-
-```java
-class p1{
-
-}
-```
-
-case 1 (Print first then recursion.)
-
-case 2 (Recursion first then print.)
-
-case 3 (print before recursion and after recursion too)
+![alt text](images/image-13.png)

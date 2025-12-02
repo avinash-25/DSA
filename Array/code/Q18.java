@@ -1,5 +1,5 @@
 
-public class Q18 {
+class Q18 {
     public static void main(String[] args) {
         int OrignalArr[] = { 10, 20, 30, 40, 30, 20, 10 };
 
