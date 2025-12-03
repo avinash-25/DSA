@@ -75,3 +75,25 @@
 ![alt text](<../Images/image copy 2.png>)
 
 ![alt text](<../Images/image copy 3.png>)
+
+
+## Day - 2
+
+String can uses by three ways
+
+### String
+
+String s1 = "Avinash"
+String s2 = new String ("Mohan");
+- It cant be modified
+  
+### Stringbuilder
+
+Stringbuilder sb1 = new Stringbuilder("Mohan");
+- String and String Builder both are differnet we cant consider equal
+- It can be modified
+
+### StringBuffer
+
+StringBuffer sb2 = new StringBuffer("Mohan");
+- It can also be modified

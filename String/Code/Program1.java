@@ -11,5 +11,14 @@ class Program1 {
 
         System.out.println(s1.contains("cd"));
 
+        for (int i = 0; i < s1.length(); i++) {
+            System.out.println(s1.charAt(i));
+        }
+
+        char[] c = s1.toCharArray();
+
+        for (char ch : s1.toCharArray()) {
+            System.out.print(ch + " ");
+        }
     }
 }
