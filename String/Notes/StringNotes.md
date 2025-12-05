@@ -97,3 +97,9 @@ Stringbuilder sb1 = new Stringbuilder("Mohan");
 
 StringBuffer sb2 = new StringBuffer("Mohan");
 - It can also be modified
+
+
+## **Note**
+
+- StringBuilder and stringBuffer mutable type of string so `equals()` is not overriden in this two class because it will give inconsistent result.
+- However, we can convert StringBuilder or stringBuffer into string by using `toString()` and `equals()` can be applied then.
