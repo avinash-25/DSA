@@ -199,35 +199,6 @@ public void postorderTraversal(TreeNode root) {
 
 ---
 
-### 4. Level Order Traversal (BFS)
-
-Visits nodes level by level from left to right.
-
-```java
-import java.util.Queue;
-import java.util.LinkedList;
-
-public void levelOrderTraversal(TreeNode root) {
-    if (root == null) return;
-
-    Queue<TreeNode> queue = new LinkedList<>();
-    queue.offer(root);
-
-    while (!queue.isEmpty()) {
-        TreeNode current = queue.poll();
-        System.out.print(current.data + " ");
-
-        if (current.left != null) queue.offer(current.left);
-        if (current.right != null) queue.offer(current.right);
-    }
-}
-```
-
-**Time Complexity:** O(n)
-**Space Complexity:** O(w) - where w is maximum width of tree
-
----
-
 ## Traversal Cases Summary
 
 ### Case 1: Print First, Then Recurse (Preorder)
@@ -299,7 +270,8 @@ public TreeNode search(TreeNode root, int key) {
 }
 ```
 
-![Binary Search](../Images/binarySearch.png)
+![alt text](../Images/BinarySearchWithRecursion.jpeg)
+
 
 **Time Complexity:** O(h) - O(log n) for balanced, O(n) for skewed
 **Space Complexity:** O(h) - recursion stack
@@ -328,208 +300,6 @@ public TreeNode searchIterative(TreeNode root, int key) {
 
 **Time Complexity:** O(h)
 **Space Complexity:** O(1)
-
----
-
-### Insert in BST
-
-```java
-public TreeNode insert(TreeNode root, int key) {
-    // If tree is empty, create new node
-    if (root == null) {
-        return new TreeNode(key);
-    }
-
-    // Otherwise, recur down the tree
-    if (key < root.data) {
-        root.left = insert(root.left, key);
-    } else if (key > root.data) {
-        root.right = insert(root.right, key);
-    }
-
-    // Return unchanged node pointer
-    return root;
-}
-```
-
-**Time Complexity:** O(h)
-**Space Complexity:** O(h) - recursion stack
-
----
-
-### Delete in BST
-
-```java
-public TreeNode delete(TreeNode root, int key) {
-    if (root == null) return null;
-
-    // Find the node to delete
-    if (key < root.data) {
-        root.left = delete(root.left, key);
-    } else if (key > root.data) {
-        root.right = delete(root.right, key);
-    } else {
-        // Node with only one child or no child
-        if (root.left == null) {
-            return root.right;
-        } else if (root.right == null) {
-            return root.left;
-        }
-
-        // Node with two children: Get inorder successor
-        root.data = minValue(root.right);
-        root.right = delete(root.right, root.data);
-    }
-
-    return root;
-}
-
-private int minValue(TreeNode root) {
-    int minValue = root.data;
-    while (root.left != null) {
-        minValue = root.left.data;
-        root = root.left;
-    }
-    return minValue;
-}
-```
-
-**Time Complexity:** O(h)
-**Space Complexity:** O(h)
-
----
-
-## Common Operations
-
-![Type 1](../Images/Type%20-%201.jpeg)
-
-![LeetCode Problems](../Images/Leetcode.jpeg)
-
-### Find Height of Binary Tree
-
-```java
-public int height(TreeNode root) {
-    if (root == null) return -1;  // or 0 based on definition
-
-    int leftHeight = height(root.left);
-    int rightHeight = height(root.right);
-
-    return Math.max(leftHeight, rightHeight) + 1;
-}
-```
-
-**Time Complexity:** O(n)
-**Space Complexity:** O(h)
-
----
-
-### Count Total Nodes
-
-```java
-public int countNodes(TreeNode root) {
-    if (root == null) return 0;
-
-    return 1 + countNodes(root.left) + countNodes(root.right);
-}
-```
-
-**Time Complexity:** O(n)
-**Space Complexity:** O(h)
-
----
-
-### Check if Binary Tree is Balanced
-
-```java
-public boolean isBalanced(TreeNode root) {
-    return checkBalance(root) != -1;
-}
-
-private int checkBalance(TreeNode root) {
-    if (root == null) return 0;
-
-    int leftHeight = checkBalance(root.left);
-    if (leftHeight == -1) return -1;
-
-    int rightHeight = checkBalance(root.right);
-    if (rightHeight == -1) return -1;
-
-    if (Math.abs(leftHeight - rightHeight) > 1) return -1;
-
-    return Math.max(leftHeight, rightHeight) + 1;
-}
-```
-
-**Time Complexity:** O(n)
-**Space Complexity:** O(h)
-
----
-
-### Lowest Common Ancestor (LCA)
-
-```java
-public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-    if (root == null || root == p || root == q) {
-        return root;
-    }
-
-    TreeNode left = lowestCommonAncestor(root.left, p, q);
-    TreeNode right = lowestCommonAncestor(root.right, p, q);
-
-    if (left != null && right != null) return root;
-
-    return left != null ? left : right;
-}
-```
-
-**Time Complexity:** O(n)
-**Space Complexity:** O(h)
-
----
-
-### Validate Binary Search Tree
-
-```java
-public boolean isValidBST(TreeNode root) {
-    return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);
-}
-
-private boolean validate(TreeNode root, long min, long max) {
-    if (root == null) return true;
-
-    if (root.data <= min || root.data >= max) return false;
-
-    return validate(root.left, min, root.data) &&
-           validate(root.right, root.data, max);
-}
-```
-
-**Time Complexity:** O(n)
-**Space Complexity:** O(h)
-
----
-
-### Mirror/Invert Binary Tree
-
-```java
-public TreeNode invertTree(TreeNode root) {
-    if (root == null) return null;
-
-    // Swap left and right children
-    TreeNode temp = root.left;
-    root.left = root.right;
-    root.right = temp;
-
-    // Recursively invert subtrees
-    invertTree(root.left);
-    invertTree(root.right);
-
-    return root;
-}
-```
-
-**Time Complexity:** O(n)
-**Space Complexity:** O(h)
 
 ---
 
@@ -584,12 +354,19 @@ public TreeNode invertTree(TreeNode root) {
 
 ---
 
-## Additional Resources
+![LeetCode Problems](../Images/Leetcode.jpeg)
 
-- Practice platforms: LeetCode, HackerRank, GeeksforGeeks
-- Key topics: Tree construction, serialization, Morris traversal
-- Advanced: Segment trees, Fenwick trees, Trie
 
----
+![alt text](<../Images/image copy.png>)
 
-_Happy Coding! 🌳_
+![alt text](<../Images/image copy 2.png>)
+
+![alt text](<../Images/image copy 3.png>)
+
+![alt text](<../Images/image copy 4.png>)
+
+![alt text](<../Images/image copy 5.png>)
+
+![alt text](<../Images/image copy 6.png>)
+
+![alt text](<../Images/image copy 7.png>)
