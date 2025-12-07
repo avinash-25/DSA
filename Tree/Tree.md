@@ -10,14 +10,20 @@ Accessing elements of a tree one by one is called **tree traversal**.
 
 ![alt text](Images/image.png)
 
+<br><br><br><br><br><br><br><br><br><br><br>
+
 - **Preorder (Root → Left → Right)**
  
 ![alt text](<Images/image copy.png>)
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 - **Postorder (Left → Right → Root)**
 
 ![alt text](<Images/image copy 2.png>)
   
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 ### 2. Breadth First Search (BFS)
 
 - **Level Order**
@@ -27,6 +33,8 @@ Accessing elements of a tree one by one is called **tree traversal**.
 ![alt text](<Images/image copy 3.png>)
 
 ---
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## Special Types of Trees
 
@@ -39,6 +47,8 @@ A binary tree where the height difference between the left subtree and right sub
 A binary tree where the height difference between the left subtree and right subtree of any node is more than 1.
 
 ![alt text](<Images/image copy 5.png>)
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### 3. Binary Search Tree (BST)
 
@@ -118,7 +128,5 @@ int n = a.length;
 | i           | Current Node |
 | 2i + 1      | Left Child   |
 | 2i + 2      | Right Child  |
-
-![alt text](<Images/image copy 11.png>)
 
 ---
